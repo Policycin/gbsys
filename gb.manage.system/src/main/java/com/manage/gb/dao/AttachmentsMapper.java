@@ -9,7 +9,7 @@ import com.manage.gb.model.Attachments;
  * </p>
  *
  * @author zxd
- * @since 2020-12-15
+ * @since 2020-12-16
  */
 public interface AttachmentsMapper extends BaseMapper<Attachments> {
 

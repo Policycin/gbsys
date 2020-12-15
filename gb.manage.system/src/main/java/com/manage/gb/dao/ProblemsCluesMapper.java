@@ -9,7 +9,7 @@ import com.manage.gb.model.ProblemsClues;
  * </p>
  *
  * @author zxd
- * @since 2020-12-15
+ * @since 2020-12-16
  */
 public interface ProblemsCluesMapper extends BaseMapper<ProblemsClues> {
 

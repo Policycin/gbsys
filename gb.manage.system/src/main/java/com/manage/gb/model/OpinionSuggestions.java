@@ -1,17 +1,17 @@
 package com.manage.gb.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
+import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 
 /**
  * <p>
- * 线索征集表
+ * 意见建议表
  * </p>
  *
  * @author zxd
- * @since 2020-12-15
+ * @since 2020-12-16
  */
 public class OpinionSuggestions implements Serializable {
 
@@ -21,12 +21,12 @@ public class OpinionSuggestions implements Serializable {
      * 主键
      */
     @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    private String id;
 
     /**
-     * 投诉类型	1.企业2.执法监管部门
+     * 执法部门名称
      */
-    private Boolean problemType;
+    private String staffName;
 
     /**
      * 问题内容
@@ -34,9 +34,14 @@ public class OpinionSuggestions implements Serializable {
     private String content;
 
     /**
-     * 状态	1.已提交2.已收集3.已下发
+     * 状态	1.已提交2.已采纳3.已办结
      */
     private Boolean status;
+
+    /**
+     * 选登状态	1. 被选登 2.未被选登
+     */
+    private Boolean seleStatus;
 
     /**
      * 标题
@@ -79,6 +84,11 @@ public class OpinionSuggestions implements Serializable {
     private Boolean showPublic;
 
     /**
+     * 是否匿名	0.匿名 1.实名
+     */
+    private Boolean hideShow;
+
+    /**
      * 创建时间
      */
     private LocalDateTime createTime;
@@ -104,20 +114,20 @@ public class OpinionSuggestions implements Serializable {
     private Boolean deleteFlag;
 
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Boolean getProblemType() {
-        return problemType;
+    public String getStaffName() {
+        return staffName;
     }
 
-    public void setProblemType(Boolean problemType) {
-        this.problemType = problemType;
+    public void setStaffName(String staffName) {
+        this.staffName = staffName;
     }
 
     public String getContent() {
@@ -134,6 +144,14 @@ public class OpinionSuggestions implements Serializable {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public Boolean getSeleStatus() {
+        return seleStatus;
+    }
+
+    public void setSeleStatus(Boolean seleStatus) {
+        this.seleStatus = seleStatus;
     }
 
     public String getTitle() {
@@ -200,6 +218,14 @@ public class OpinionSuggestions implements Serializable {
         this.showPublic = showPublic;
     }
 
+    public Boolean getHideShow() {
+        return hideShow;
+    }
+
+    public void setHideShow(Boolean hideShow) {
+        this.hideShow = hideShow;
+    }
+
     public LocalDateTime getCreateTime() {
         return createTime;
     }
@@ -244,9 +270,10 @@ public class OpinionSuggestions implements Serializable {
     public String toString() {
         return "OpinionSuggestions{" +
         "id=" + id +
-        ", problemType=" + problemType +
+        ", staffName=" + staffName +
         ", content=" + content +
         ", status=" + status +
+        ", seleStatus=" + seleStatus +
         ", title=" + title +
         ", uniscid=" + uniscid +
         ", orgTerritorial=" + orgTerritorial +
@@ -255,6 +282,7 @@ public class OpinionSuggestions implements Serializable {
         ", committerPhonenum=" + committerPhonenum +
         ", committerSex=" + committerSex +
         ", showPublic=" + showPublic +
+        ", hideShow=" + hideShow +
         ", createTime=" + createTime +
         ", createBy=" + createBy +
         ", updateTime=" + updateTime +

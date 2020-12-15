@@ -12,7 +12,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author zxd
- * @since 2020-12-15
+ * @since 2020-12-16
  */
 public class GbOrgs implements Serializable {
 

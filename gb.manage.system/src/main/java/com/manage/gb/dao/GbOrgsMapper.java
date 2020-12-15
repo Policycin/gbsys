@@ -9,7 +9,7 @@ import com.manage.gb.model.GbOrgs;
  * </p>
  *
  * @author zxd
- * @since 2020-12-15
+ * @since 2020-12-16
  */
 public interface GbOrgsMapper extends BaseMapper<GbOrgs> {
 

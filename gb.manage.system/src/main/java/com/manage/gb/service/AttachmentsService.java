@@ -5,11 +5,11 @@ import com.manage.gb.model.Attachments;
 
 /**
  * <p>
- * 文件表 服务类
+ * 附件表 服务类
  * </p>
  *
  * @author zxd
- * @since 2020-12-15
+ * @since 2020-12-16
  */
 public interface AttachmentsService extends IService<Attachments> {
 

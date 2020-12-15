@@ -5,11 +5,11 @@ import com.manage.gb.model.OpinionSuggestions;
 
 /**
  * <p>
- * 线索征集表 服务类
+ * 意见建议表 服务类
  * </p>
  *
  * @author zxd
- * @since 2020-12-15
+ * @since 2020-12-16
  */
 public interface OpinionSuggestionsService extends IService<OpinionSuggestions> {
 

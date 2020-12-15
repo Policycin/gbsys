@@ -13,7 +13,7 @@ import com.manage.gb.service.GbOrgsService;
  * </p>
  *
  * @author zxd
- * @since 2020-12-15
+ * @since 2020-12-16
  */
 @Service
 public class GbOrgsServiceImpl extends ServiceImpl<GbOrgsMapper, GbOrgs> implements GbOrgsService {
