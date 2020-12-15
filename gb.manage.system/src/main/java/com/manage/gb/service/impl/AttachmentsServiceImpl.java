@@ -9,11 +9,11 @@ import com.manage.gb.service.AttachmentsService;
 
 /**
  * <p>
- * 文件表 服务实现类
+ * 附件表 服务实现类
  * </p>
  *
  * @author zxd
- * @since 2020-12-15
+ * @since 2020-12-16
  */
 @Service
 public class AttachmentsServiceImpl extends ServiceImpl<AttachmentsMapper, Attachments> implements AttachmentsService {

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.demo.mapper.OpinionSuggestionsMapper">
+<mapper namespace="com.aa.demo.mapper.OpinionSuggestionsMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.example.demo.model.OpinionSuggestions">
+    <resultMap id="BaseResultMap" type="com.manage.gb.model.OpinionSuggestions">
         <id column="id" property="id" />
-        <result column="problem_type" property="problemType" />
+        <result column="staff_name" property="staffName" />
         <result column="content" property="content" />
         <result column="status" property="status" />
+        <result column="sele_status" property="seleStatus" />
         <result column="title" property="title" />
         <result column="uniscid" property="uniscid" />
         <result column="org_territorial" property="orgTerritorial" />
@@ -16,6 +17,7 @@
         <result column="committer_phonenum" property="committerPhonenum" />
         <result column="committer_sex" property="committerSex" />
         <result column="show_public" property="showPublic" />
+        <result column="hide_show" property="hideShow" />
         <result column="create_time" property="createTime" />
         <result column="create_by" property="createBy" />
         <result column="update_time" property="updateTime" />
@@ -25,7 +27,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, problem_type, content, status, title, uniscid, org_territorial, committer_idcard, committer_name, committer_phonenum, committer_sex, show_public, create_time, create_by, update_time, update_by, delete_flag
+        id, staff_name, content, status, sele_status, title, uniscid, org_territorial, committer_idcard, committer_name, committer_phonenum, committer_sex, show_public, hide_show, create_time, create_by, update_time, update_by, delete_flag
     </sql>
 
 </mapper>

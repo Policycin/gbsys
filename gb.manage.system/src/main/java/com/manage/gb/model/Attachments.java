@@ -1,10 +1,9 @@
 package com.manage.gb.model;
 
-import java.io.Serializable;
-import java.time.LocalDateTime;
-
 import com.baomidou.mybatisplus.annotation.IdType;
+import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableId;
+import java.io.Serializable;
 
 /**
  * <p>
@@ -12,7 +11,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
  * </p>
  *
  * @author zxd
- * @since 2020-12-15
+ * @since 2020-12-16
  */
 public class Attachments implements Serializable {
 
@@ -22,7 +21,7 @@ public class Attachments implements Serializable {
      * 主键
      */
     @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    private String id;
 
     /**
      * 关联内容的id
@@ -65,11 +64,11 @@ public class Attachments implements Serializable {
     private Long loadCount;
 
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

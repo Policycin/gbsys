@@ -1,8 +1,8 @@
 package com.manage.gb.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
+import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 
 /**
@@ -11,7 +11,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author zxd
- * @since 2020-12-15
+ * @since 2020-12-16
  */
 public class ProblemsClues implements Serializable {
 
@@ -21,12 +21,12 @@ public class ProblemsClues implements Serializable {
      * 主键
      */
     @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    private String id;
 
     /**
-     * 投诉类型	1.企业2.执法监管部门
+     * 主体名称
      */
-    private Boolean problemType;
+    private String subjectName;
 
     /**
      * 问题内容
@@ -37,6 +37,11 @@ public class ProblemsClues implements Serializable {
      * 状态	1.已提交2.已收集3.已下发
      */
     private Boolean status;
+
+    /**
+     * 选登状态	1. 被选登 2.未被选登
+     */
+    private Boolean seleStatus;
 
     /**
      * 标题
@@ -104,20 +109,20 @@ public class ProblemsClues implements Serializable {
     private Boolean deleteFlag;
 
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Boolean getProblemType() {
-        return problemType;
+    public String getSubjectName() {
+        return subjectName;
     }
 
-    public void setProblemType(Boolean problemType) {
-        this.problemType = problemType;
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
     }
 
     public String getContent() {
@@ -134,6 +139,14 @@ public class ProblemsClues implements Serializable {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public Boolean getSeleStatus() {
+        return seleStatus;
+    }
+
+    public void setSeleStatus(Boolean seleStatus) {
+        this.seleStatus = seleStatus;
     }
 
     public String getTitle() {
@@ -244,9 +257,10 @@ public class ProblemsClues implements Serializable {
     public String toString() {
         return "ProblemsClues{" +
         "id=" + id +
-        ", problemType=" + problemType +
+        ", subjectName=" + subjectName +
         ", content=" + content +
         ", status=" + status +
+        ", seleStatus=" + seleStatus +
         ", title=" + title +
         ", uniscid=" + uniscid +
         ", orgTerritorial=" + orgTerritorial +

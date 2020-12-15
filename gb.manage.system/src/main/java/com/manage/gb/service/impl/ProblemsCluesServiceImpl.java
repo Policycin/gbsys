@@ -13,7 +13,7 @@ import com.manage.gb.service.ProblemsCluesService;
  * </p>
  *
  * @author zxd
- * @since 2020-12-15
+ * @since 2020-12-16
  */
 @Service
 public class ProblemsCluesServiceImpl extends ServiceImpl<ProblemsCluesMapper, ProblemsClues> implements ProblemsCluesService {
