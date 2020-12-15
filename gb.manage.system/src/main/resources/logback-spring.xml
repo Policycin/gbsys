@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    ​<springProperty scope="context" name="spring.application.name" source="spring.application.name" />
+    <springProperty scope="context" name="application.name" source="spring.application.alias" defaultValue="${spring.application.name}" />
+    <springProperty scope="context" name="log.home" source="log.home" defaultValue="${user.home}"/>
+
+    <!--定义日志文件的存储地址 勿在 logback 的配置中使用相对路径-->
+    <!-- Example for logging into the build folder of your project -->
+    <!-- <property name="log.dir" value="${BUILD_FOLDER:-build}"/>​ -->
+    <!--<property name="log.dir" value="${log.home}/logs/${application.name}"/>​-->
+
+    <property name="log.pattern" value="%d{yyyy-MM-dd} %d{HH:mm:ss. SSS} [%thread] %-5level %logger{36} %L - %msg%n" />
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <!-- Minimum logging level to be presented in the console logs-->
+            <level>DEBUG</level>
+        </filter>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+            <immediateFlush>true</immediateFlush>
+        </encoder>
+    </appender>
+    <!-- 业务日志，输出到文件，info 及以上-->
+    <appender name="biz.file"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+
+        <file>${log.home}/${application.name}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.home}/${application.name}.log.%d{yyyy-MM-dd}.%i</fileNamePattern>
+            <!--<MaxHistory>30</MaxHistory>-->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>20mb</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+            <charset class="java.nio.charset.Charset">UTF-8</charset>
+            <immediateFlush>true</immediateFlush>
+        </encoder>
+    </appender>
+
+    <!-- 错误日志，输出到文件，error 及以上 -->
+    <appender name="error.file"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+
+        <file>${log.home}/${application.name}-error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.home}/${application.name}-error.log.%d{yyyy-MM-dd}.%i</fileNamePattern>
+            <!--<MaxHistory>30</MaxHistory>-->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>20mb</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+            <charset class="java.nio.charset.Charset">UTF-8</charset>
+            <immediateFlush>true</immediateFlush>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="biz.file" />
+        <appender-ref ref="error.file" />
+    </root>
+
+</configuration>

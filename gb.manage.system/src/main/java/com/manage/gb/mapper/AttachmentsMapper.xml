@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.AttachmentsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.demo.model.Attachments">
+        <id column="id" property="id" />
+        <result column="associated_id" property="associatedId" />
+        <result column="file_type" property="fileType" />
+        <result column="re_file_name" property="reFileName" />
+        <result column="file_name" property="fileName" />
+        <result column="file_path" property="filePath" />
+        <result column="file_size" property="fileSize" />
+        <result column="create_date" property="createDate" />
+        <result column="load_count" property="loadCount" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, associated_id, file_type, re_file_name, file_name, file_path, file_size, create_date, load_count
+    </sql>
+
+</mapper>

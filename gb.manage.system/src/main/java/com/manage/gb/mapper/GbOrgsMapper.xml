@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.GbOrgsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.demo.model.GbOrgs">
+        <id column="org_id" property="orgId" />
+        <result column="org_code" property="orgCode" />
+        <result column="org_name" property="orgName" />
+        <result column="parent_org_id" property="parentOrgId" />
+        <result column="org_type" property="orgType" />
+        <result column="reg_address" property="regAddress" />
+        <result column="reg_date" property="regDate" />
+        <result column="oper_eff_date" property="operEffDate" />
+        <result column="oper_exp_date" property="operExpDate" />
+        <result column="org_status" property="orgStatus" />
+        <result column="org_seq" property="orgSeq" />
+        <result column="data_stamp" property="dataStamp" />
+        <result column="region_id" property="regionId" />
+        <result column="org_cc_code" property="orgCcCode" />
+        <result column="ext_tag_01" property="extTag01" />
+        <result column="ext_tag_02" property="extTag02" />
+        <result column="ext_tag_03" property="extTag03" />
+        <result column="ext_tag_04" property="extTag04" />
+        <result column="ext_tag_05" property="extTag05" />
+        <result column="org_sname" property="orgSname" />
+        <result column="org_version" property="orgVersion" />
+        <result column="is_pituitary" property="isPituitary" />
+        <result column="org_lvl" property="orgLvl" />
+        <result column="org_phone" property="orgPhone" />
+        <result column="org_person" property="orgPerson" />
+        <result column="sub_code" property="subCode" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        org_id, org_code, org_name, parent_org_id, org_type, reg_address, reg_date, oper_eff_date, oper_exp_date, org_status, org_seq, data_stamp, region_id, org_cc_code, ext_tag_01, ext_tag_02, ext_tag_03, ext_tag_04, ext_tag_05, org_sname, org_version, is_pituitary, org_lvl, org_phone, org_person, sub_code
+    </sql>
+
+</mapper>
