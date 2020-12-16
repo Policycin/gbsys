@@ -2,6 +2,8 @@ package com.manage.gb.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.manage.gb.model.OpinionSuggestions;
+import com.manage.gb.model.OpinionSuggestionsQuery;
+import com.manage.gb.model.OpinionSuggestionsVO;
 
 /**
  * <p>
@@ -13,4 +15,9 @@ import com.manage.gb.model.OpinionSuggestions;
  */
 public interface OpinionSuggestionsService extends IService<OpinionSuggestions> {
 
+    Integer add(OpinionSuggestionsVO opinionSuggestionsVO);
+
+    OpinionSuggestions queryDetail(OpinionSuggestionsQuery query);
+
+    Integer update(OpinionSuggestions dto);
 }

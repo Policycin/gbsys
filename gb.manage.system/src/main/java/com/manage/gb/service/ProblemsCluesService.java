@@ -2,6 +2,8 @@ package com.manage.gb.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.manage.gb.model.ProblemsClues;
+import com.manage.gb.model.ProblemsCluesQuery;
+import com.manage.gb.model.ProblemsCluesVO;
 
 /**
  * <p>
@@ -13,4 +15,9 @@ import com.manage.gb.model.ProblemsClues;
  */
 public interface ProblemsCluesService extends IService<ProblemsClues> {
 
+    Integer add(ProblemsCluesVO problemsCluesVO);
+
+    ProblemsClues queryDetail(ProblemsCluesQuery query);
+
+    Integer update(ProblemsClues dto);
 }

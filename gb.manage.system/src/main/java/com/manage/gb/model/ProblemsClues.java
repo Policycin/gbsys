@@ -3,6 +3,8 @@ package com.manage.gb.model;
 import com.baomidou.mybatisplus.annotation.IdType;
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.io.Serializable;
 
 /**
@@ -13,6 +15,7 @@ import java.io.Serializable;
  * @author zxd
  * @since 2020-12-16
  */
+@TableName("problems_clues")
 public class ProblemsClues implements Serializable {
 
     private static final long serialVersionUID=1L;
@@ -20,7 +23,7 @@ public class ProblemsClues implements Serializable {
     /**
      * 主键
      */
-    @TableId(value = "id", type = IdType.AUTO)
+    @TableId(value = "id", type = IdType.ASSIGN_UUID)
     private String id;
 
     /**
@@ -34,14 +37,18 @@ public class ProblemsClues implements Serializable {
     private String content;
 
     /**
-     * 状态	1.已提交2.已收集3.已下发
+     * 提交状态
      */
-    private Boolean status;
+    private Integer status;
+
+    private Integer collectStatus;
+
+    private Integer publicStatus;
 
     /**
      * 选登状态	1. 被选登 2.未被选登
      */
-    private Boolean seleStatus;
+    private Integer seleStatus;
 
     /**
      * 标题
@@ -108,6 +115,19 @@ public class ProblemsClues implements Serializable {
      */
     private Boolean deleteFlag;
 
+    private LocalDateTime collectTime;
+
+    private LocalDateTime publicTime;
+
+    private LocalDateTime seleTime;
+
+    public LocalDateTime getSeleTime() {
+        return seleTime;
+    }
+
+    public void setSeleTime(LocalDateTime seleTime) {
+        this.seleTime = seleTime;
+    }
 
     public String getId() {
         return id;
@@ -133,19 +153,19 @@ public class ProblemsClues implements Serializable {
         this.content = content;
     }
 
-    public Boolean getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
-    public Boolean getSeleStatus() {
+    public Integer getSeleStatus() {
         return seleStatus;
     }
 
-    public void setSeleStatus(Boolean seleStatus) {
+    public void setSeleStatus(Integer seleStatus) {
         this.seleStatus = seleStatus;
     }
 
@@ -253,27 +273,37 @@ public class ProblemsClues implements Serializable {
         this.deleteFlag = deleteFlag;
     }
 
-    @Override
-    public String toString() {
-        return "ProblemsClues{" +
-        "id=" + id +
-        ", subjectName=" + subjectName +
-        ", content=" + content +
-        ", status=" + status +
-        ", seleStatus=" + seleStatus +
-        ", title=" + title +
-        ", uniscid=" + uniscid +
-        ", orgTerritorial=" + orgTerritorial +
-        ", committerIdcard=" + committerIdcard +
-        ", committerName=" + committerName +
-        ", committerPhonenum=" + committerPhonenum +
-        ", committerSex=" + committerSex +
-        ", showPublic=" + showPublic +
-        ", createTime=" + createTime +
-        ", createBy=" + createBy +
-        ", updateTime=" + updateTime +
-        ", updateBy=" + updateBy +
-        ", deleteFlag=" + deleteFlag +
-        "}";
+    public LocalDateTime getCollectTime() {
+        return collectTime;
     }
+
+    public void setCollectTime(LocalDateTime collectTime) {
+        this.collectTime = collectTime;
+    }
+
+    public LocalDateTime getPublicTime() {
+        return publicTime;
+    }
+
+    public void setPublicTime(LocalDateTime publicTime) {
+        this.publicTime = publicTime;
+    }
+
+    public Integer getCollectStatus() {
+        return collectStatus;
+    }
+
+    public void setCollectStatus(Integer collectStatus) {
+        this.collectStatus = collectStatus;
+    }
+
+    public Integer getPublicStatus() {
+        return publicStatus;
+    }
+
+    public void setPublicStatus(Integer publicStatus) {
+        this.publicStatus = publicStatus;
+    }
+
+
 }

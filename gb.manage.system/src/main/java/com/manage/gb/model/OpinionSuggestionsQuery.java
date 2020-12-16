@@ -1,9 +1,12 @@
 package com.manage.gb.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import lombok.Data;
+
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -13,14 +16,15 @@ import java.io.Serializable;
  * @author zxd
  * @since 2020-12-16
  */
-public class OpinionSuggestions implements Serializable {
+@Data
+public class OpinionSuggestionsQuery extends Page<OpinionSuggestions> implements Serializable {
 
     private static final long serialVersionUID=1L;
 
     /**
      * 主键
      */
-    @TableId(value = "id", type = IdType.ASSIGN_UUID)
+    @TableId(value = "id", type = IdType.AUTO)
     private String id;
 
     /**
@@ -41,7 +45,7 @@ public class OpinionSuggestions implements Serializable {
     /**
      * 选登状态	1. 被选登 2.未被选登
      */
-    private Integer seleStatus;
+    private Boolean seleStatus;
 
     private Integer collectStatus;
 
@@ -115,19 +119,6 @@ public class OpinionSuggestions implements Serializable {
      */
     private Boolean deleteFlag;
 
-    private LocalDateTime collectTime;
-
-    private LocalDateTime publicTime;
-
-    private LocalDateTime seleTime;
-
-    public LocalDateTime getSeleTime() {
-        return seleTime;
-    }
-
-    public void setSeleTime(LocalDateTime seleTime) {
-        this.seleTime = seleTime;
-    }
 
     public String getId() {
         return id;
@@ -161,20 +152,12 @@ public class OpinionSuggestions implements Serializable {
         this.status = status;
     }
 
-    public Integer getSeleStatus() {
+    public Boolean getSeleStatus() {
         return seleStatus;
     }
 
-    public void setSeleStatus(Integer seleStatus) {
+    public void setSeleStatus(Boolean seleStatus) {
         this.seleStatus = seleStatus;
-    }
-
-    public Integer getCollectStatus() {
-        return collectStatus;
-    }
-
-    public void setCollectStatus(Integer collectStatus) {
-        this.collectStatus = collectStatus;
     }
 
     public String getTitle() {
@@ -287,22 +270,6 @@ public class OpinionSuggestions implements Serializable {
 
     public void setDeleteFlag(Boolean deleteFlag) {
         this.deleteFlag = deleteFlag;
-    }
-
-    public LocalDateTime getCollectTime() {
-        return collectTime;
-    }
-
-    public void setCollectTime(LocalDateTime collectTime) {
-        this.collectTime = collectTime;
-    }
-
-    public LocalDateTime getPublicTime() {
-        return publicTime;
-    }
-
-    public void setPublicTime(LocalDateTime publicTime) {
-        this.publicTime = publicTime;
     }
 
     @Override

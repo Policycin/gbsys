@@ -1,11 +1,10 @@
 package com.manage.gb.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -15,15 +14,14 @@ import java.io.Serializable;
  * @author zxd
  * @since 2020-12-16
  */
-@TableName("attachments")
-public class Attachments implements Serializable {
+public class AttachmentsQuery implements Serializable {
 
     private static final long serialVersionUID=1L;
 
     /**
      * 主键
      */
-    @TableId(value = "id", type = IdType.ASSIGN_UUID)
+    @TableId(value = "id", type = IdType.AUTO)
     private String id;
 
     /**
