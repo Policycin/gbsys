@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.manage.gb.dao.RegionCodeMapper">
+    <resultMap id="RegionCodeResultMap"
+               type="com.manage.gb.dto.RegionCodeQueryOutBo">
+        <result column="region_code" property="regionCode" jdbcType="VARCHAR"/>
+        <result column="region_name" property="regionName" jdbcType="VARCHAR"/>
+        <result column="region_level" property="regionLevel" jdbcType="INTEGER"/>
+        <result column="parent_region_code" property="parentRegionCode" jdbcType="VARCHAR"/>
+        <result column="province_value" property="provinceValue" jdbcType="INTEGER"/>
+        <result column="city_value" property="cityValue" jdbcType="INTEGER"/>
+        <result column="town_value" property="townValue" jdbcType="INTEGER"/>
+        <result column="country_value" property="countryValue" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="getByParam" resultMap="RegionCodeResultMap">
+        select
+        region_code,region_name,region_level,parent_region_code,province_value,city_value,town_value,country_value
+        from region_code t
+        where 1=1
+        <if test="regionCode != null and regionCode != ''">
+            and t.region_code=#{regionCode}
+        </if>
+        <if test="regionName != null and regionName != ''">
+            and t.region_name=#{regionName}
+        </if>
+
+    </select>
+
+    <select id="listByParam" resultMap="RegionCodeResultMap">
+        select
+        region_code,region_name,region_level,parent_region_code,province_value,city_value,town_value,country_value
+        from region_code t
+        where 1=1
+        <if test="parentRegionCode != null and parentRegionCode != ''">
+            and t.parent_region_code=#{parentRegionCode}
+        </if>
+    </select>
+
+
+    <select id="pageByParam" resultMap="RegionCodeResultMap">
+        select
+        region_code,region_name,region_level,parent_region_code,province_value,city_value,town_value,country_value
+        from region_code t
+        where 1=1
+        <if test="parentRegionCode != null and parentRegionCode != ''">
+            and t.parent_region_code=#{parentRegionCode}
+        </if>
+
+    </select>
+
+    <select id="queryRegionList"
+            resultType="com.ccbft.govern.organization.service.entity.region.RegionAndDeptListOutBo">
+		select region_code regionCode, region_name name, region_level regionLevel, 0 as type
+		from region_code
+		where region_code = #{regionCode}
+	</select>
+
+    <select id="queryRegionCodeList"
+            resultType="com.ccbft.govern.organization.service.entity.region.RegionListOutBO">
+        select region_code regionCode, region_name regionName
+        from region_code
+        where parent_region_code = #{parentRegionCode}
+    </select>
+
+    <select id="getChildRegionList"
+            resultType="com.ccbft.govern.organization.service.entity.region.RegionListOutBO">
+        select t.region_code,t2.region_name from region_code_parent t
+        INNER JOIN region_code t2 on t.region_code=t2.region_code
+         where t.parent_region_code=#{parentRegionCode}
+    </select>
+
+    <!--根据区域等级查询区域列表-->
+    <select id="queryRegionCodeByLevel" parameterType="java.util.Map" resultType="java.util.Map">
+        select
+        region_code AS subjectCode,
+        region_name AS subjectName
+        from region_code
+        where region_level = #{regionLevel}
+        <if test="parentRegionCode != null and parentRegionCode != ''">
+            and parent_region_code = #{parentRegionCode}
+        </if>
+        order by region_name
+    </select>
+
+
+    <!--根据区域等级查询区域列表-->
+    <select id="getRegionListByParent" parameterType="java.util.Map" resultType="java.util.Map">
+        select
+        region_code AS subjectCode,
+        region_name AS subjectName
+        from region_code
+        where 1=1
+        and parent_region_code = #{parentRegionCode}
+        order by region_name
+    </select>
+
+    <!--根据id查询当前-->
+    <select id="getRegionById" parameterType="java.lang.String" resultType="java.util.Map">
+        select
+        region_code AS subjectCode,
+        region_name AS subjectName
+        from region_code
+        where 1=1
+        and region_code = #{regionCode}
+    </select>
+
+</mapper>	
+	
+	 
+	
