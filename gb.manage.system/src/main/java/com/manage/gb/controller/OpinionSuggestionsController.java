@@ -3,7 +3,6 @@ package com.manage.gb.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.manage.gb.common.CommonRespInfoJson;
 import com.manage.gb.constants.Constants;
@@ -11,6 +10,7 @@ import com.manage.gb.constants.ResponseCode;
 import com.manage.gb.model.*;
 import com.manage.gb.service.AttachmentsService;
 import com.manage.gb.service.OpinionSuggestionsService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
